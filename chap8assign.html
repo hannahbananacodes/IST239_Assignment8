@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8 Assignment</title>
+</head>
+<body style="background-color: violet;">
+    <h1>Browser Settings:</h1>
+
+<script type="text/javascript">
+    if (navigator.javaEnabled()) {
+        document.write("Java is enabled!");
+    } else {
+        document.write("Java is disabled!<br>");
+    }
+
+    document.write("Browser platform: " + navigator.platform + "<br>");
+    document.write("Browser code name: " + navigator.appCodeName + "<br>");
+    document.write("Browser name: " + navigator.appName + "<br>");
+    document.write("Browser version: " + navigator.appVersion + "<br><br>");
+
+    let personName = window.prompt("Enter your full name:");
+    let personAge = parseInt(window.prompt("Enter your age:"));
+    let personGender = window.prompt("Enter your gender:");
+
+    
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.life_expect = function() {
+            if ((this.gender == 'm') || (this.gender == 'M')) {
+                return (76 - this.age);
+            } else if ((this.gender == 'f') || (this.gender == 'F'))
+            {
+                return (81 - this.age);
+            } else 
+            {
+                return ("Invalid gender");
+            }
+        }
+        this.genderName = function() {
+            if ((this.gender == 'm') || (this.gender == 'M')) {
+                return ('male');
+            } else if ((this.gender == 'f') || (this.gender == 'F'))
+            {
+                return ('female');
+            }
+        }
+    }
+
+    let myPerson = new Person(personName, personAge, personGender);
+    
+    document.write("Person's Properties:<br>");
+    document.write(myPerson.name + "<br>");
+    document.write(myPerson.age + "<br>");
+    document.write(myPerson.gender + "<br>");
+    document.write(myPerson.life_expect() + "<br><br>");
+
+    document.write("Hi " + myPerson.name + ", as a " + myPerson.age + " year old " + myPerson.genderName() + " you are expected to live " + myPerson.life_expect() + " more years!");
+
+</script>
+    
+</body>
+</html>
